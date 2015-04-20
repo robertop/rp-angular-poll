@@ -1,0 +1,52 @@
+{
+  "polls": {
+    "1": {
+      "id": 1,
+      "name": "how old are you?",
+      "choices": {
+        "0": "0 - 17",
+        "1": "18-35",
+        "2": "36-55",
+        "3": "56-80",
+        "4": "80+"
+      }
+    },
+    "2": {
+      "id": 2,
+      "name": "what is your favorite operating system?",
+      "choices": {
+        "0": "windows",
+        "1": "linux",
+        "2": "Mac OS X"
+      }
+    },
+    "3": {
+      "id": 3,
+      "name": "best coffee place?",
+      "choices": {
+        "0": "Starbucks",
+        "1": "CoffeBean",
+        "2": "Dunkin' Donuts"
+      }
+    },
+    "4": {
+      "id": 4,
+      "name": "McChicken or McRib?",
+      "choices": {
+        "0": "McChicken",
+        "1": "McRib"
+      }
+    }
+  },
+
+  "pollResults": {
+    "1": { "0": 0, "1": 0, "2": 0, "3": 0, "4": 0},
+    "2": { "0": 0, "1": 0, "2": 0},
+    "3": { "0": 0, "1": 0, "2": 0},
+    "4": { "0": 0, "1": 0 }
+  },
+
+  "pollHistory": {
+
+  }
+}

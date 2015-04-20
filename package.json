@@ -1,0 +1,29 @@
+{
+  "name": "rpAngularPoll",
+  "version": "0.0.1",
+  "description": "angular poll app using firebase",
+  "devDependencies": {
+    "bower": "^1.4.1",
+    "gulp": "^3.8.11",
+    "gulp-angular-filesort": "^1.1.1",
+    "gulp-inject": "^1.2.0",
+    "gulp-jshint": "^1.10.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-watch": "^4.2.3",
+    "http-server": "^0.8.0",
+    "jasmine-core": "^2.2.0",
+    "jshint": "^2.6.3",
+    "jshintrc": "^0.1.0",
+    "karma": "^0.12.31",
+    "karma-chrome-launcher": "^0.1.7",
+    "karma-jasmine": "^0.3.5",
+    "karma-ng-html2js-preprocessor": "^0.1.2",
+    "livereload": "^0.3.7",
+    "livereload-js": "^2.2.2",
+    "wiredep": "^2.2.2"
+  },
+  "scripts": {
+    "start": "node_modules/.bin/http-server -p 8000 -c-1",
+    "livereload": "node_modules/.bin/livereload"
+  }
+}

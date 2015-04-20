@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular Poll</title>
+
+    <!-- bower:css -->
+    <link rel="stylesheet" href="../bower_components/angular-material/angular-material.css" />
+    <!-- endbower -->
+
+
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/app/app.css">
+    <!-- endinject -->
+
+</head>
+<body ng-app="rpAngularModule" class="full">
+
+<div ng-view class="full"></div>
+
+<!-- bower:js -->
+<script src="../bower_components/angular/angular.js"></script>
+<script src="../bower_components/angular-animate/angular-animate.js"></script>
+<script src="../bower_components/angular-aria/angular-aria.js"></script>
+<script src="../bower_components/angular-material/angular-material.js"></script>
+<script src="../bower_components/firebase/firebase.js"></script>
+<script src="../bower_components/angularfire/dist/angularfire.js"></script>
+<script src="../bower_components/angular-route/angular-route.js"></script>
+<!-- endbower -->
+
+<script src="http://localhost:35729/livereload.js"></script>
+
+<!-- inject:js -->
+<script src="/app/app.js"></script>
+<script src="/app/services/RouteChange.js"></script>
+<script src="/app/services/PollResults.js"></script>
+<script src="/app/services/PollHistory.js"></script>
+<script src="/app/services/Poll.js"></script>
+<script src="/app/services/Auth.js"></script>
+<script src="/app/polls/polls.js"></script>
+<script src="/app/polls/poll.js"></script>
+<script src="/app/polls/filters.js"></script>
+<script src="/app/login/login.js"></script>
+<script src="/app/directives/logout.js"></script>
+<!-- endinject -->
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+html, .full {
+    height: 100%;
+}
+
+.splash-container {
+    height: 100%;
+    width: 100%;
+}
+.login-button-first {
+    margin-right: 30px;
+}
+
+.icon {
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-image: url(sprite.svg);
+}
+
+.icon-user {
+    width: 32px;
+    height: 32px;
+    background-position: 0 0;
+}
+
+.icon-google {
+    width: 32px;
+    height: 32px;
+    background-position: -48px 0;
+}
+
+body {
+    background: #a1dbff; /* Old browsers */
+    background: -moz-linear-gradient(top, #a1dbff 0%, #cbebff 43%, #f0f9ff 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #a1dbff), color-stop(43%, #cbebff), color-stop(100%, #f0f9ff)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #a1dbff 0%, #cbebff 43%, #f0f9ff 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #a1dbff 0%, #cbebff 43%, #f0f9ff 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #a1dbff 0%, #cbebff 43%, #f0f9ff 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #a1dbff 0%, #cbebff 43%, #f0f9ff 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a1dbff', endColorstr='#f0f9ff', GradientType=0); /* IE6-9 */
+}
+
+.info-bar {
+    margin-top: 21.440px;
+}

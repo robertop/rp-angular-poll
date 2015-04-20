@@ -1,0 +1,22 @@
+
+<div layout="row" layout-wrap style="margin:0 auto; width: 960">
+    <div flex="80">
+        <h1>Choose a poll to take.</h1>
+        <ul ng-repeat="poll in polls">
+            <li>
+                <a href="#/poll/{{poll.id}}">{{poll.name}}</a>
+            </li>
+        </ul>
+    </div>
+    <rp-logout user-name="userName"></rp-logout>
+    <div flex-wrap>
+        <h2>Poll Responses (updated real time)</h2>
+        <ul ng-repeat="history in pollHistory">
+            <li>
+                A <strong>{{history.userId | pollUser }}</strong> user answered <em>"{{ history.pollId | pollName : polls }}"</em> at {{history.date | date:'h:m a' }}
+            </li>
+        </ul>
+    </div>
+
+</div>
+
