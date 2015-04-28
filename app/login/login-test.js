@@ -54,7 +54,7 @@ describe('login test', function() {
 
     it('should allow user to sign in as anonymous', function() {
         var $scope = {};
-        var controller = $controller('LoginController', { $scope: $scope });
+        $controller('LoginController', { $scope: $scope });
 
         $scope.onAnonymousLogin();
         deferred.resolve();
@@ -66,7 +66,7 @@ describe('login test', function() {
 
     it('should allow user to sign in with google', function() {
         var $scope = {};
-        var controller = $controller('LoginController', { $scope: $scope });
+        $controller('LoginController', { $scope: $scope });
 
         $scope.onGoogleLogin();
         deferred.resolve();
