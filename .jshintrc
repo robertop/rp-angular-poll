@@ -18,6 +18,11 @@
   "globals": {
     "angular": false,
     "Firebase": false,
-    "describe": false
+    "describe": false,
+    "it": false,
+    "beforeEach": false,
+    "expect": false,
+    "jasmine": false,
+    "inject": false
   }
 }
