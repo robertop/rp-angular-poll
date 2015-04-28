@@ -47,7 +47,7 @@ describe('logout directive test', function() {
     }));
 
     it('should have a logout link', function() {
-        expect(element.html()).toContain("<a");
+        expect(element.html()).toContain('<a');
     });
 
     it('should log the user out', function() {
