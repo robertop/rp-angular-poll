@@ -13,7 +13,7 @@ var angularFilesort = require('gulp-angular-filesort');
 gulp.task('inject-dev', ['inject-dev-css'], function () {
 
     var target = gulp.src('./app/index.html');
-    var sources = gulp.src(['./app/**/*.js']).pipe(angularFilesort());
+    var sources = gulp.src(['./app/**/*.js', '!./app/**/*-test.js']).pipe(angularFilesort());
     return target.pipe(inject(sources))
         .pipe(wiredep({}))
         .pipe(gulp.dest('./app'));
