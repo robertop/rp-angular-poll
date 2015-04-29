@@ -27,7 +27,6 @@ angular.module('rpAngularModule')
         ['$scope', '$stateParams', '$state', '$q', 'CurrentUser', 'Poll', 'PollHistory', 'PollResults',
         function($scope, $stateParams, $state, $q, CurrentUser, Poll, PollHistory, PollResults) {
     $scope.selected = '-1';
-    $scope.userName = '';
     $scope.pollResults = {};
 
     /**
@@ -53,12 +52,4 @@ angular.module('rpAngularModule')
             });
         });
     };
-
-    if (CurrentUser.provider === 'anonymous') {
-        $scope.userName = 'Guest';
-    }
-    else if (CurrentUser.provider === 'google') {
-        $scope.userName = CurrentUser.google.displayName;
-    }
-
 }]);
