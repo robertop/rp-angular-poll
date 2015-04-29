@@ -10,7 +10,6 @@
 angular.module('rpAngularModule.services')
 .factory('UserName', ['Auth', function(Auth) {
     return Auth.$waitForAuth().then(function(user) {
-        debugger;
         if (user.provider === 'anonymous') {
             return 'Guest';
         }
