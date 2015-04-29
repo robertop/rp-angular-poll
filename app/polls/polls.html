@@ -2,7 +2,7 @@
 <h1>Choose a poll to take</h1>
 <ul ng-repeat="poll in polls">
     <li>
-        <a href="#/poll/{{poll.id}}">{{poll.name}}</a>
+        <a ui-sref="logged-in.poll({ id: poll.id})">{{poll.name}}</a>
     </li>
 </ul>
 
