@@ -16,7 +16,7 @@
 </head>
 <body ng-app="rpAngularModule" class="full">
 
-<div ng-view class="full"></div>
+<div ui-view class="full"></div>
 
 <!-- bower:js -->
 <script src="../bower_components/angular/angular.js"></script>
@@ -25,13 +25,14 @@
 <script src="../bower_components/angular-material/angular-material.js"></script>
 <script src="../bower_components/firebase/firebase.js"></script>
 <script src="../bower_components/angularfire/dist/angularfire.js"></script>
-<script src="../bower_components/angular-route/angular-route.js"></script>
+<script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 <!-- endbower -->
 
 <script src="http://localhost:35729/livereload.js"></script>
 
 <!-- inject:js -->
 <script src="/app/app.js"></script>
+<script src="/app/services/UserName.js"></script>
 <script src="/app/services/RouteChange.js"></script>
 <script src="/app/services/PollResults.js"></script>
 <script src="/app/services/PollHistory.js"></script>
@@ -41,6 +42,7 @@
 <script src="/app/polls/poll.js"></script>
 <script src="/app/polls/filters.js"></script>
 <script src="/app/login/login.js"></script>
+<script src="/app/layouts/logged-in.js"></script>
 <script src="/app/directives/logout.js"></script>
 <!-- endinject -->
 

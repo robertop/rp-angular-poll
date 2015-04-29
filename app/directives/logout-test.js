@@ -12,6 +12,12 @@ describe('logout directive test', function() {
     var $scope;
 
     /**
+     * the state (ui router state), used by the directive
+     * to redirect the user to the login page.
+     */
+    var $state;
+
+    /**
      * the root DOM element of the compiled directive, used
      * so that we can simulate clicks
      */
@@ -29,6 +35,8 @@ describe('logout directive test', function() {
      */
     beforeEach(module('rpAngularModule', function($provide) {
         Auth = jasmine.createSpyObj('Auth', ['$unauth']);
+        $state = jasmine.createSpyObj('$state', ['go']);
+        $provide.value('$state', $state);
         $provide.value('Auth', Auth);
     }));
 
@@ -40,14 +48,16 @@ describe('logout directive test', function() {
      */
     beforeEach(inject(function($compile, $rootScope) {
         $scope = $rootScope.$new();
-
-        $scope.userName = 'user john';
-        element = $compile('<rp-logout userName="userName"></rp-logout>')($scope);
+        element = $compile('<rp-logout user-name="john user"></rp-logout>')($scope);
         $scope.$digest();
     }));
 
     it('should have a logout link', function() {
         expect(element.html()).toContain('<a');
+    });
+
+    it('should have the user name', function() {
+        expect(element.html()).toContain('john user');
     });
 
     it('should log the user out', function() {

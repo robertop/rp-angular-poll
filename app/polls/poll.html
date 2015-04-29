@@ -1,20 +1,14 @@
-<div layout="row" layout-wrap style="margin:0 auto; width: 960px;">
-    <div flex="80">
-        <h2>{{poll.name}}</h2>
-        <md-radio-group ng-change="onPollChoiceSelected()" ng-model="selected" >
-            <md-radio-button ng-repeat="(choiceIndex, choiceValue) in poll.choices"
-                    ng-value="choiceIndex" aria-label="{{choiceValue}}"
-                    >
-                {{choiceValue}}
-            </md-radio-button>
-        </md-radio-group>
-    </div>
-    <rp-logout user-name="userName"></rp-logout>
-
-    <div flex-wrap>
-        <h3>Current Totals: (updated in real time)</h3>
-        <ul ng-repeat="(choiceIndex, choiceCount) in pollResults">
-            <li>{{ choiceIndex| choiceName : poll.choices}} : {{choiceCount}}</li>
-        </ul>
-    </div>
+<h2>{{poll.name}}</h2>
+<md-radio-group ng-change="onPollChoiceSelected()" ng-model="selected" >
+    <md-radio-button ng-repeat="(choiceIndex, choiceValue) in poll.choices"
+            ng-value="choiceIndex" aria-label="{{choiceValue}}"
+            >
+        {{choiceValue}}
+    </md-radio-button>
+</md-radio-group>
+<div>
+    <h3>Current Totals: (updated in real time)</h3>
+    <ul ng-repeat="(choiceIndex, choiceCount) in pollResults">
+        <li>{{ choiceIndex| choiceName : poll.choices}} : {{choiceCount}}</li>
+    </ul>
 </div>

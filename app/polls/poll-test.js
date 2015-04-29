@@ -2,6 +2,8 @@
  * Created by roberto on 4/14/15.
  */
 
+'use strict';
+
 describe('poll test', function() {
 
     /**
@@ -14,6 +16,13 @@ describe('poll test', function() {
      * The controller under test
      */
     var $controller;
+
+    /**
+     * Stub the state service, so that we test that the user
+     * is redirected to the polls page after they selected
+     * a choice
+     */
+    var $state;
 
     /**
      * the root scope of the app, needed to execute
@@ -30,16 +39,23 @@ describe('poll test', function() {
     var pollDeferred;
     var resultsDeferred;
 
+    // mock the services so that we don't depend
+    // on firebase
+    var Poll;
+    var PollResults;
+
     beforeEach(module('rpAngularModule', function($provide) {
         Auth = jasmine.createSpyObj('Auth', ['$requireAuth']);
         Poll = jasmine.createSpyObj('Poll', ['fetch']);
         PollResults = jasmine.createSpyObj('PollResults', ['fetch']);
+        $state = jasmine.createSpyObj('$state', ['go']);
 
         // instead of using the default services, use our spies
         $provide.value('Auth', Auth);
         $provide.value('CurrentUser', { provider: 'anonymous'});
         $provide.value('Poll', Poll);
         $provide.value('PollResults', PollResults);
+        $provide.value('$state', $state);
     }));
 
     beforeEach(inject(function(_$controller_, _$rootScope_, $q) {
@@ -66,8 +82,8 @@ describe('poll test', function() {
     }));
 
     it('should set poll and results', function() {
-        $scope = {};
-        $routeParams = { id: 3 };
+        var $scope = {};
+        var $stateParams = { id: 3 };
 
         var testPoll = {
             pollId: 3,
@@ -84,7 +100,7 @@ describe('poll test', function() {
             3: 35
         };
 
-        $controller('PollController', { $scope: $scope, $routeParams: $routeParams });
+        $controller('PollController', { $scope: $scope, $stateParams: $stateParams });
 
         authDeferred.resolve();
         pollDeferred.resolve(testPoll);

@@ -9,20 +9,19 @@
  * have responded to a poll.
  */
 angular.module('rpAngularModule')
-.config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/polls', {
+.config(['$stateProvider', function($stateProvider) {
+    $stateProvider.state('logged-in.polls', {
+        url: '/polls',
         controller: 'PollsController',
         templateUrl: 'polls/polls.html',
         resolve: {
-            CurrentUser: ['Auth', function(Auth) {
+            CurrentUser: ['Auth', function (Auth) {
                 return Auth.$requireAuth();
             }]
         }
     });
 }]).controller('PollsController', ['$scope', '$location', '$mdToast', 'Poll', 'CurrentUser', 'Auth', 'PollHistory',
         function($scope, $location, $mdToast, Poll, CurrentUser, Auth, PollHistory) {
-
-    $scope.userName = '';
     $scope.polls = Poll.getAll();
     $scope.pollHistory = PollHistory.getAll();
 
@@ -39,11 +38,4 @@ angular.module('rpAngularModule')
             );
         });
     });
-
-    if (CurrentUser.provider === 'anonymous') {
-        $scope.userName = 'Guest';
-    }
-    else if (CurrentUser.provider === 'google') {
-        $scope.userName = CurrentUser.google.displayName;
-    }
 }]);

@@ -9,13 +9,12 @@ angular.module('rpAngularModule.services', [
 
 angular.module('rpAngularModule', [
     'firebase',
-    'ngRoute',
+    'ui.router',
     'ngMaterial',
     'rpAngularModule.services'
-]).config(['$routeProvider', '$provide', function($routeProvider, $provide) {
-    $routeProvider.otherwise({
-        'redirectTo': '/login'
-    });
+]).config(['$urlRouterProvider', '$provide', function($urlRouterProvider, $provide) {
+    $urlRouterProvider.otherwise('/login');
+
     $provide.factory('ProjectFirebase', function() {
        return {
            'host': 'https://blazing-torch-9122.firebaseio.com/'

@@ -8,16 +8,16 @@
  * The directive will handle the click event.
  */
 angular.module('rpAngularModule')
-.directive('rpLogout', ['Auth', '$location', function(Auth, $location) {
+.directive('rpLogout', ['$state', 'Auth', function($state, Auth) {
     return {
         restrict: 'E',
         scope: {
-            userName: '=userName'
+            userName: '@userName'
         },
         link: function(scope/* , element, attr*/) {
             scope.onLogoutClick = function() {
                 Auth.$unauth();
-                $location.url('/login');
+                $state.go('login');
             };
         },
         templateUrl: 'directives/logout.html'

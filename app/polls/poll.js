@@ -12,8 +12,9 @@
  * previous responses to the current poll.
  */
 angular.module('rpAngularModule')
-.config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/poll/:id', {
+.config(['$stateProvider', function($stateProvider) {
+    $stateProvider.state('logged-in.poll', {
+        url: '/poll/:id',
         controller: 'PollController',
         templateUrl: 'polls/poll.html',
         resolve: {
@@ -23,9 +24,8 @@ angular.module('rpAngularModule')
         }
     });
 }]).controller('PollController',
-        ['$scope', '$routeParams', '$location', '$q', 'CurrentUser', 'Poll', 'PollHistory', 'PollResults',
-        function($scope, $routeParams, $location, $q, CurrentUser, Poll, PollHistory, PollResults) {
-
+        ['$scope', '$stateParams', '$state', '$q', 'CurrentUser', 'Poll', 'PollHistory', 'PollResults',
+        function($scope, $stateParams, $state, $q, CurrentUser, Poll, PollHistory, PollResults) {
     $scope.selected = '-1';
     $scope.userName = '';
     $scope.pollResults = {};
@@ -33,11 +33,11 @@ angular.module('rpAngularModule')
     /**
      * Once we fetch a poll, fetch the previous results for this poll also.
      */
-    var pollPromise = Poll.fetch($routeParams.id).$loaded().then(function(obj) {
+    var pollPromise = Poll.fetch($stateParams.id).$loaded().then(function(obj) {
         $scope.poll = obj;
     });
     pollPromise.then(function() {
-        PollResults.fetch($routeParams.id).$loaded().then(function(results) {
+        PollResults.fetch($stateParams.id).$loaded().then(function(results) {
             $scope.pollResults = results;
         });
     });
@@ -47,9 +47,9 @@ angular.module('rpAngularModule')
      * for this poll.
      */
     $scope.onPollChoiceSelected = function() {
-        PollResults.record($routeParams.id, $scope.selected).then(function() {
-            PollHistory.record(CurrentUser.uid, $routeParams.id, $scope.selected).then(function () {
-                $location.url('/polls');
+        PollResults.record($stateParams.id, $scope.selected).then(function() {
+            PollHistory.record(CurrentUser.uid, $stateParams.id, $scope.selected).then(function () {
+                $state.go('logged-in.polls');
             });
         });
     };

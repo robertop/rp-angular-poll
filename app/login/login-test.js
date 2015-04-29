@@ -11,9 +11,15 @@ describe('login test', function() {
     var $controller;
 
     /**
-     * Stub the location service, so that we test that the user
+     * Stub the state service, so that we test that the user
      * is redirected to the proper routes after successful
      * login
+     */
+    var $state;
+
+    /**
+     * Stub the location service, so that we test that the user
+     * is redirected to the proper routes during login errors
      */
     var $location;
 
@@ -37,6 +43,8 @@ describe('login test', function() {
     beforeEach(module('rpAngularModule', function($provide) {
         $location = jasmine.createSpyObj('location', ['url']);
         $provide.value('$location', $location);
+        $state = jasmine.createSpyObj('$state', ['go']);
+        $provide.value('$state', $state);
         Auth = jasmine.createSpyObj('Auth', ['$authWithOAuthPopup', '$authAnonymously']);
         $provide.value('Auth', Auth);
     }));
@@ -61,7 +69,7 @@ describe('login test', function() {
         $rootScope.$digest();
 
         expect(Auth.$authAnonymously).toHaveBeenCalled();
-        expect($location.url).toHaveBeenCalled();
+        expect($state.go).toHaveBeenCalledWith('logged-in.polls');
     });
 
     it('should allow user to sign in with google', function() {
@@ -73,6 +81,6 @@ describe('login test', function() {
         $rootScope.$digest();
 
         expect(Auth.$authWithOAuthPopup).toHaveBeenCalledWith('google');
-        expect($location.url).toHaveBeenCalled();
+        expect($state.go).toHaveBeenCalledWith('logged-in.polls');
     });
 });
