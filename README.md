@@ -15,6 +15,20 @@ Execute this command in the project root to download all dependencies:
 ```
 
 ## Developing
+
+After cloning the app, update the source code in app.js and 
+put your firebase host in the source code, replacing 
+
+```
+'host': 'FIREBASE-HOST-GOES-HERE'
+```
+
+with your host, for example
+
+```
+ 'host': 'http://blazing-torch-NNNN.firebaseio.com/'
+```
+
 Start a dev web server to serve the app. After this command is run, the app
 is available on http://localhost:3000/app
 
