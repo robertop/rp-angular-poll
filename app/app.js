@@ -17,7 +17,7 @@ angular.module('rpAngularModule', [
 
     $provide.factory('ProjectFirebase', function() {
        return {
-           'host': 'https://blazing-torch-9122.firebaseio.com/'
+           'host': 'FIREBASE-HOST-GOES-HERE'
        };
     });
 }]);
