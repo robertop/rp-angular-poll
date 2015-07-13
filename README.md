@@ -31,3 +31,17 @@ files are saved.
 ```
     npm test
 ```
+
+Run jshint (JavaScript static analysis) on the project. This should be
+run before every commit, to make sure that no obvious bugs are committed.
+
+```
+    node_modules/.bin/gulp lint
+```
+
+This command runs a program that stays alie and runs jshint (JavaScript
+static analysis) on files that have been saved. This command should
+be run during development.
+```
+    node_modules/.bin/gulp watch-linter
+```
