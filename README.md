@@ -1,5 +1,7 @@
 # rp-angular-poll
-A small polling (survey) application that leverages Angular JS and Firebase Backend As A Service
+A small polling (survey) application that leverages Angular JS and Firebase Backend As A Service.
+This is a fully functional polling application that uses [Firebase](https://www.firebase.com/)
+for persisting of its data.
 
 Prerequisites:
 * NPM - You can install this via your OS package manager (homebrew, apt, yum, rpm), even chocolatey
@@ -13,7 +15,8 @@ Execute this command in the project root to download all dependencies:
 ```
 
 ## Developing
-Start a dev web server to serve the app
+Start a dev web server to serve the app. After this command is run, the app
+is available on http://localhost:3000/app
 
 ```
     npm start
